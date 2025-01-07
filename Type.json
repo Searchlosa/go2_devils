@@ -1,1 +1,30 @@
-["e.gymwhole"]
+
+{
+  "site_adı": "Örnek Web Sitesi",
+  "sayfalar": [
+    {
+      "id": 1,
+      "başlık": "Ana Sayfa",
+      "url": "/",
+      "içerik": "Hoş geldiniz! Bu, örnek bir web sitesi ana sayfasıdır."
+    },
+    {
+      "id": 2,
+      "başlık": "Hakkımızda",
+      "url": "/hakkimizda",
+      "içerik": "Biz kimiz ve ne yapıyoruz?"
+    },
+    {
+      "id": 3,
+      "başlık": "İletişim",
+      "url": "/iletisim",
+      "içerik": "Bize ulaşın!"
+    }
+  ],
+  "iletisim": {
+    "telefon": "+90 123 456 7890",
+    "email": "info@ornek.com",
+    "adres": "Örnek Mahallesi, Örnek Cad., No:1, İstanbul, Türkiye"
+  }
+}
+ 
