@@ -1,1 +1,111 @@
-[*Ege Yılmaz*]
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek Web Sitesi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #f4f4f4;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    section {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="site-adı"></h1>
+  </header>
+
+  <nav id="nav-menu"></nav>
+
+  <section id="icerik-alani">
+    <h2 id="sayfa-baslik"></h2>
+    <p id="sayfa-icerik"></p>
+  </section>
+
+  <footer>
+    <p id="iletisim-bilgileri"></p>
+  </footer>
+
+  <script>
+    // JSON verisini burada tanımlayalım
+    const siteVerisi = {
+      "site_adı": "Örnek Web Sitesi",
+      "sayfalar": [
+        {
+          "id": 1,
+          "başlık": "Ana Sayfa",
+          "url": "/",
+          "içerik": "Hoş geldiniz! Bu, örnek bir web sitesi ana sayfasıdır."
+        },
+        {
+          "id": 2,
+          "başlık": "Hakkımızda",
+          "url": "/hakkimizda",
+          "içerik": "Biz kimiz ve ne yapıyoruz?"
+        },
+        {
+          "id": 3,
+          "başlık": "İletişim",
+          "url": "/iletisim",
+          "içerik": "Bize ulaşın!"
+        }
+      ],
+      "iletisim": {
+        "telefon": "+90 123 456 7890",
+        "email": "info@ornek.com",
+        "adres": "Örnek Mahallesi, Örnek Cad., No:1, İstanbul, Türkiye"
+      }
+    };
+
+    // Site başlığını ayarla
+    document.getElementById("site-adı").innerText = siteVerisi.site_adı;
+
+    // Menü bağlantılarını oluştur
+    const navMenu = document.getElementById("nav-menu");
+    siteVerisi.sayfalar.forEach(sayfa => {
+      const aTag = document.createElement("a");
+      aTag.href = sayfa.url;
+      aTag.innerText = sayfa.başlık;
+      navMenu.appendChild(aTag);
+    });
+
+    // İlk sayfa içeriğini ayarla
+    const sayfa = siteVerisi.sayfalar[0];
+    document.getElementById("sayfa-baslik").innerText = sayfa.başlık;
+    document.getElementById("sayfa-icerik").innerText = sayfa.içerik;
+
+    // İletişim bilgilerini göster
+    const iletisim = siteVerisi.iletisim;
+    document.getElementById("iletisim-bilgileri").innerHTML = `
+      Telefon: ${iletisim.telefon}<br>
+      E-mail: ${iletisim.email}<br>
+      Adres: ${iletisim.adres}
+    `;
+  </script>
+
+</body>
+</html>
+
